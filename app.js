@@ -1,6 +1,6 @@
 'use strict';
 const S={fopen:innerWidth>=760,lang:localStorage.getItem('pf_lang')||'en',P:[],N:[],M:null,f:null,shown:40,nsort:['score',-1],ntab:'table'};
-const CAT_UR={"Beauty & Personal Care":"خوبصورتی اور ذاتی نگہداشت","Health & Fitness":"صحت اور فٹنس","Home & Kitchen Gadgets":"گھر اور کچن گیجٹس","Kids & Toys":"بچے اور کھلونے","Men's Accessories & Watches":"مردوں کی اشیاء اور گھڑیاں","Mobile Accessories":"موبائل ایکسیسریز","Winter Items":"سردیوں کی اشیاء","Women's Fashion & Accessories":"خواتین کا فیشن اور اشیاء"};
+const CAT_UR={"Beauty & Personal Care":"خوبصورتی اور ذاتی نگہداشت","Clothing":"کپڑے","Health & Fitness":"صحت اور فٹنس","Home & Kitchen Gadgets":"گھر اور کچن گیجٹس","Kids & Toys":"بچے اور کھلونے","Men's Accessories & Watches":"مردوں کی اشیاء اور گھڑیاں","Men's Fashion":"مردوں کا فیشن","Mobile Accessories":"موبائل ایکسیسریز","Winter Items":"سردیوں کی اشیاء","Women's Fashion & Accessories":"خواتین کا فیشن اور اشیاء"};
 const T={en:{
 appName:'Product Finder Demo',banner:'Demo only · estimated data · not a live product',
 nHome:'Home',nFinder:'Finder',nNiches:'Niches',nCalc:'Margin',nSeasons:'Seasons',nTracker:'Tracker',
@@ -96,7 +96,7 @@ const cat=c=>S.lang==='ur'?(CAT_UR[c]||c):c;
 const nname=n=>S.lang==='ur'?n.ur:n.idea;
 const tier=s=>s>=8?t('tier10'):s>=6?t('tier7'):s>=4?t('tier5'):t('tier3');
 const badge=s=>`<span class="badge s${s}" title="${esc(t('score'))}">${s}</span>`;
-const label=n=>n.sat?`<span class="pill sat">${t('lblSat')}</span>`:`<span class="pill opp">${t('lblOpp')}</span>`;
+const label=n=>n.short?(n.sat?`<span class="pill sat">${t('lblSat')}</span>`:`<span class="pill opp">${t('lblOpp')}</span>`):'';
 const est=()=>`<span class="pill est">${t('estimated')}</span>`;
 const monthName=s=>{if(!s)return'';const[y,m]=s.split('-');return t('months')[+m-1]+' '+y};
 // ---------- storage
